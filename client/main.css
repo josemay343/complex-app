@@ -1,4 +1,120 @@
+:root {
+  --blue: #3498db;
+}
+
 body {
   padding: 10px;
-  font-family: sans-serif;
+  margin-top: 0px;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  background: #2980b9;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#2c3e50), to(#2980b9));
+  background: linear-gradient(to bottom, #2c3e50, #2980b9);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+body main .wrapper {
+  width: 400px;
+  padding: 50px;
+  border-radius: 15px;
+  background-color: rgba(236, 240, 241, 0.15);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+body main .wrapper .addTaskContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 400px;
+}
+
+body main .wrapper .addTaskContainer label {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+body main .wrapper .addTaskContainer input {
+  font-size: 16px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+}
+
+body main .wrapper .addTaskContainer ::-webkit-input-placeholder {
+  color: #ddd;
+}
+
+body main .wrapper .addTaskContainer :-ms-input-placeholder {
+  color: #ddd;
+}
+
+body main .wrapper .addTaskContainer ::-ms-input-placeholder {
+  color: #ddd;
+}
+
+body main .wrapper .addTaskContainer ::placeholder {
+  color: #ddd;
+}
+
+body main .wrapper .addTaskContainer button {
+  width: 100px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--blue);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 0;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+body main .wrapper .tasksListContainer {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+body main .wrapper .tasksListContainer li {
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+body main .wrapper .tasksListContainer li .name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+body main .wrapper .tasksListContainer li .description {
+  font-size: 14px;
+  font-weight: 300;
+}
+/*# sourceMappingURL=main.css.map */

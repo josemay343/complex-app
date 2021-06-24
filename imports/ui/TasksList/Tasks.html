@@ -1,0 +1,8 @@
+<template name="Tasks">
+    <ul class="tasksListContainer">
+        <h2>Tasks: </h2>
+        {{#each getTasks}}
+            {{> TaskItem}}
+        {{/each}}
+    </ul>
+</template>
