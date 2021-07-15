@@ -1,6 +1,8 @@
 import { TasksCollection } from '../../../api/Tasks/TasksCollection';
 import {Template} from 'meteor/templating';
 
+import '../AddTaskComponent/AddTaskComponent.html'
+import '../AddTaskComponent/AddTaskComponent'
 import '../TaskItem/TaskItem.html';
 import '../TaskItem/TaskItem';
 

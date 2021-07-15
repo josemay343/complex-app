@@ -2,7 +2,14 @@
     <div class="navbar">
         <a href="{{pathFor 'home'}}" class="nav">Home</a>
         <a href="{{pathFor 'tasks'}}" class="nav">Tasks</a>
-        <a class="nav">Notes</a>
-        <a class="nav">Reminders</a>
+        <a href="{{pathFor 'notes'}}" class="nav">Notes</a>
+        <a href="{{pathFor 'reminders'}}" class="nav">Reminders</a>
+    </div>
+    <div class="loginCOntainer">
+        {{#if loggedIn}}
+            <div class="title">Login</div>
+            {{else}}
+            <div class="title">Logout</div>
+        {{/if}}
     </div>
 </template>
