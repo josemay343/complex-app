@@ -1,28 +1,75 @@
 :root {
     --blue: #3498db;
+    --yellow: #f1c40f;
+    --orange: #f39c12;
+    --green: #2ecc71;
+    --black: #212121;
 }
 
-body {
-    padding: 10px;
-    margin-top: 0px;
+html, body {
+    padding: 0;
+    margin: 0;
     font-family: 'Rubik', sans-serif;
     color: #fff;
+    background-color: #212121;
     background: #2980b9;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, #2c3e50, #2980b9);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, #2c3e50, #2980b9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    .hidden {
+        display: none !important;
+    }
+    .navbar {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        height: 50px;
+        width: 100%;
+        margin-bottom: 20px;
+        background-color: var(--black);
+        opacity: 0.9;
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+
+        a.nav {
+            text-decoration: inherit;
+            color: inherit;
+            cursor: auto;
+            font-size: 15px;
+            cursor: pointer;
+        }:hover {
+            opacity: 0.8;
+        }
+    }
 
     main {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        height: 100vh;
+
         .wrapper {
-            width: 400px;
-            padding: 50px;
-            border-radius: 15px;
-            background-color: rgba(236, 240, 241,.15);
-            backdrop-filter: blur(5px);
+            h1 {
+                color: var(--yellow)
+            }
+            .homeContainer {
+                height: 100vh;
+                margin-top: 15%;
+                .banner {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 600px;
+                    height: 300px;
+                    position: relative;
+                    border-radius: 15px;
+                    background-color: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    z-index: 1;
+                }
+            }
+
             .addTaskContainer {
                 display: flex;
                 flex-direction: column;  
@@ -32,6 +79,7 @@ body {
                     margin: 10px 0;
                     font-size: 18px;
                     font-weight: bold;
+                    color: var(--orange)
                 }
                 input {
                     font-size: 16px;
@@ -60,9 +108,17 @@ body {
             }
             .tasksListContainer {
                 align-self: flex-start;
+                h2 {
+                    padding-bottom: 10px;
+                    color: var(--yellow);
+                    border-bottom: 1px solid rgba(255, 255, 255, 1); 
+                }
                 li {
-                    margin-bottom: 20px;
+                    position: relative;
+                    padding-bottom: 20px;
                     list-style: none;
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid rgba(255, 255, 255, .15);
                     .name {
                         font-size: 16px;
                         font-weight: 600;
@@ -71,6 +127,21 @@ body {
                     .description {
                         font-size: 14px;
                         font-weight: 300;
+                    }
+                    button.savebtn {
+                        margin-top: 10px;
+                        cursor: pointer;
+                    }
+                    .editBtns {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        
+                        .tag {
+                            font-size: 12px;
+                            cursor: pointer;
+                            margin-bottom: 10px;
+                        }
                     }
                 }
             }

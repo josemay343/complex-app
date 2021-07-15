@@ -9,5 +9,15 @@ Meteor.methods({
                 if (res) return res
                 if (err) return err
         })
+    },
+    'removeTask':(id)=> TasksCollection.remove({_id: id}),
+    'saveEditTask'(params) {
+        return TasksCollection.update({_id: params.id}, {
+            $set: {
+                name: params.name,
+                description: params.description
+            }
+        })
     }
+    
 })

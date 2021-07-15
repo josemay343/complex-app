@@ -1,12 +1,17 @@
 :root {
   --blue: #3498db;
+  --yellow: #f1c40f;
+  --orange: #f39c12;
+  --green: #2ecc71;
+  --black: #212121;
 }
 
-body {
-  padding: 10px;
-  margin-top: 0px;
+html, body {
+  padding: 0;
+  margin: 0;
   font-family: 'Rubik', sans-serif;
   color: #fff;
+  background-color: #212121;
   background: #2980b9;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -15,7 +20,46 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-body main {
+html .hidden, body .hidden {
+  display: none !important;
+}
+
+html .navbar, body .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: var(--black);
+  opacity: 0.9;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+html .navbar a.nav, body .navbar a.nav {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+html .navbar :hover, body .navbar :hover {
+  opacity: 0.8;
+}
+
+html main, body main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,19 +73,38 @@ body main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+html main .wrapper h1, body main .wrapper h1 {
+  color: var(--yellow);
+}
+
+html main .wrapper .homeContainer, body main .wrapper .homeContainer {
   height: 100vh;
+  margin-top: 15%;
 }
 
-body main .wrapper {
-  width: 400px;
-  padding: 50px;
+html main .wrapper .homeContainer .banner, body main .wrapper .homeContainer .banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 600px;
+  height: 300px;
+  position: relative;
   border-radius: 15px;
-  background-color: rgba(236, 240, 241, 0.15);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 1;
 }
 
-body main .wrapper .addTaskContainer {
+html main .wrapper .addTaskContainer, body main .wrapper .addTaskContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,13 +115,14 @@ body main .wrapper .addTaskContainer {
   width: 400px;
 }
 
-body main .wrapper .addTaskContainer label {
+html main .wrapper .addTaskContainer label, body main .wrapper .addTaskContainer label {
   margin: 10px 0;
   font-size: 18px;
   font-weight: bold;
+  color: var(--orange);
 }
 
-body main .wrapper .addTaskContainer input {
+html main .wrapper .addTaskContainer input, body main .wrapper .addTaskContainer input {
   font-size: 16px;
   padding: 10px;
   background-color: transparent;
@@ -68,23 +132,23 @@ body main .wrapper .addTaskContainer input {
   outline: none;
 }
 
-body main .wrapper .addTaskContainer ::-webkit-input-placeholder {
+html main .wrapper .addTaskContainer ::-webkit-input-placeholder, body main .wrapper .addTaskContainer ::-webkit-input-placeholder {
   color: #ddd;
 }
 
-body main .wrapper .addTaskContainer :-ms-input-placeholder {
+html main .wrapper .addTaskContainer :-ms-input-placeholder, body main .wrapper .addTaskContainer :-ms-input-placeholder {
   color: #ddd;
 }
 
-body main .wrapper .addTaskContainer ::-ms-input-placeholder {
+html main .wrapper .addTaskContainer ::-ms-input-placeholder, body main .wrapper .addTaskContainer ::-ms-input-placeholder {
   color: #ddd;
 }
 
-body main .wrapper .addTaskContainer ::placeholder {
+html main .wrapper .addTaskContainer ::placeholder, body main .wrapper .addTaskContainer ::placeholder {
   color: #ddd;
 }
 
-body main .wrapper .addTaskContainer button {
+html main .wrapper .addTaskContainer button, body main .wrapper .addTaskContainer button {
   width: 100px;
   font-size: 15px;
   font-weight: bold;
@@ -97,24 +161,50 @@ body main .wrapper .addTaskContainer button {
   cursor: pointer;
 }
 
-body main .wrapper .tasksListContainer {
+html main .wrapper .tasksListContainer, body main .wrapper .tasksListContainer {
   -ms-flex-item-align: start;
       align-self: flex-start;
 }
 
-body main .wrapper .tasksListContainer li {
-  margin-bottom: 20px;
-  list-style: none;
+html main .wrapper .tasksListContainer h2, body main .wrapper .tasksListContainer h2 {
+  padding-bottom: 10px;
+  color: var(--yellow);
+  border-bottom: 1px solid white;
 }
 
-body main .wrapper .tasksListContainer li .name {
+html main .wrapper .tasksListContainer li, body main .wrapper .tasksListContainer li {
+  position: relative;
+  padding-bottom: 20px;
+  list-style: none;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+html main .wrapper .tasksListContainer li .name, body main .wrapper .tasksListContainer li .name {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-body main .wrapper .tasksListContainer li .description {
+html main .wrapper .tasksListContainer li .description, body main .wrapper .tasksListContainer li .description {
   font-size: 14px;
   font-weight: 300;
+}
+
+html main .wrapper .tasksListContainer li button.savebtn, body main .wrapper .tasksListContainer li button.savebtn {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+html main .wrapper .tasksListContainer li .editBtns, body main .wrapper .tasksListContainer li .editBtns {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+html main .wrapper .tasksListContainer li .editBtns .tag, body main .wrapper .tasksListContainer li .editBtns .tag {
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=main.css.map */

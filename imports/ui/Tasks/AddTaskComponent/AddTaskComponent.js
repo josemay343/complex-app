@@ -1,5 +1,4 @@
 import {Template} from 'meteor/templating';
-// import toastr from 'toastr';
 
 Template.AddTaskComponent.events({
     'click button':(e, template)=> {

@@ -1,0 +1,20 @@
+<template name="TaskItem">
+  <li class="taskItemContainer">
+    {{#unless editing}}
+      {{#if showEditBtns}}
+        <div class="editBtns">
+          <div class="tag edit">Edit</div>
+          <div class="tag delete">Delete</div>
+        </div>
+      {{/if}}
+      <div class="name">{{name}}</div>
+      <div class="description">{{description}}</div>
+    {{/unless}}
+    {{#if editing}}
+      <div class="name" contenteditable="true" autofocus>{{name}}</div>
+      <div class="description" contenteditable="true">{{description}}</div>
+      <button class="savebtn" type="submit">Save</button>
+      <button class="cancelBtn">Cancel</button>
+    {{/if}}
+  </li>
+</template>

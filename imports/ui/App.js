@@ -1,7 +1,9 @@
-import { Template } from 'meteor/templating';
-
+import '../../lib/routes'
+import '../ui/Navbar/Navbar.html'
+import '../ui/Navbar/Navbar'
 import '../ui/App.html'
-import '../ui/TasksList/Tasks.html'
-import '../ui/TasksList/Tasks'
-import '../ui/AddTaskComponent/AddTaskComponent.html'
-import '../ui/AddTaskComponent/AddTaskComponent';
+import '../ui/Home/HomeLayout.html'
+import './Tasks/TasksList/Tasks.html'
+import './Tasks/TasksList/Tasks'
+import './Tasks/AddTaskComponent/AddTaskComponent.html'
+import './Tasks/AddTaskComponent/AddTaskComponent'

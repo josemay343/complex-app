@@ -1,13 +1,8 @@
-<body>
+<template name="App">
+    {{> Navbar}}
     <main>
         <div class="wrapper">
-            {{> App}}
-            {{> AddTaskComponent}}
-            {{> Tasks}}
+            {{> Template.dynamic template=area}}
         </div>
     </main>
-</body>
-
-<template name="App">
-    <h1>Secure Task creator</h1>
 </template>

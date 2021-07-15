@@ -1,10 +1,11 @@
-import { TasksCollection } from '../../api/Tasks/TasksCollection';
+import { TasksCollection } from '../../../api/Tasks/TasksCollection';
 import {Template} from 'meteor/templating';
 
-import './TaskItem.html';
+import '../TaskItem/TaskItem.html';
+import '../TaskItem/TaskItem';
 
 Template.Tasks.onCreated(function() {
-    this.tasks = Meteor.subscribe('tasks')
+    Meteor.subscribe('tasks')
 })
 
 Template.Tasks.helpers({
