@@ -1,0 +1,36 @@
+.tabsContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+    text-transform: uppercase;
+
+    .tab {
+        display: inherit;
+        background-color: var(--grey);
+        padding: 5px 10px 5px 15px;
+        color: var(--black);
+        margin-right: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: opacity 250ms ease;
+
+        .count {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 9px;
+            width: 18px;
+            height: 18px;
+            margin-left: 5px;
+            border-radius: 50%;
+            border: 1px solid var(--black);
+            pointer-events: none;
+        }
+        .count.done {
+            background-color: green;
+            color: #fff
+        }
+    }:hover {
+        opacity: 0.7;
+    }
+}

@@ -2,9 +2,13 @@
     <h1>Secure Task creator</h1>
     {{> AddTaskComponent}}
     <ul class="tasksListContainer">
-        <h2>Tasks: </h2>
-        {{#each getTasks}}
-            {{> TaskItem}}
-        {{/each}}
+        {{> Tabs tabsArray}}
+        {{#if getTasks.length}}
+            {{#each getTasks}}
+                {{> TaskItem this}}
+            {{/each}}
+        {{else}}
+            No Tasks :(
+        {{/if}}
     </ul>
 </template>

@@ -1,11 +1,15 @@
 <template name="Navbar">
+    <a href="{{pathFor 'home'}}" class="nav">
+        <div class="logo invert">
+            <img src="/images/Asset 3@4x.png" alt="">
+        </div>
+    </a>
     <div class="navbar">
-        <a href="{{pathFor 'home'}}" class="nav">Home</a>
         <a href="{{pathFor 'tasks'}}" class="nav">Tasks</a>
         <a href="{{pathFor 'notes'}}" class="nav">Notes</a>
         <a href="{{pathFor 'reminders'}}" class="nav">Reminders</a>
     </div>
-    <div class="loginCOntainer">
+    <div class="loginContainer">
         {{#if loggedIn}}
             <div class="title">Login</div>
             {{else}}

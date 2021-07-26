@@ -2,10 +2,7 @@
   <li class="taskItemContainer">
     {{#unless editing}}
       {{#if showEditBtns}}
-        <div class="editBtns">
-          <div class="tag edit">Edit</div>
-          <div class="tag delete">Delete</div>
-        </div>
+        {{> EditButtons buttons}}
       {{/if}}
       <div class="name">{{name}}</div>
       <div class="description">{{description}}</div>

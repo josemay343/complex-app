@@ -1,0 +1,12 @@
+<template name="NotesItem">
+    <div class="noteContainer">
+        {{#if showEditButtons}}
+            {{> EditButtons}}
+        {{/if}}
+        {{{text}}}
+    </div>
+    {{#if showPopup}}
+        <div class="overlay"></div>
+        <div class="editNotePopup"></div>
+    {{/if}}
+</template>

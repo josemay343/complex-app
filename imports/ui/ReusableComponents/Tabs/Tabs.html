@@ -1,0 +1,16 @@
+<template name="Tabs">
+    <div class="tabsContainer">
+        {{#each this}}
+            <span class="tab">
+                <span class='name'>{{name}}</span>
+                <span class="count {{className}}">
+                    {{#if count}}
+                        {{count}}
+                        {{else}}
+                            0
+                    {{/if}}
+                </span>
+            </span>
+        {{/each}}
+    </div>
+</template>

@@ -1,9 +1,86 @@
+.noteCreator {
+  background-color: #fff;
+}
+
+.noteCreator .textArea {
+  color: #000;
+}
+
+.noteContainer {
+  border: 1px solid var(--yellow);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tabsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.tabsContainer .tab {
+  display: inherit;
+  background-color: var(--grey);
+  padding: 5px 10px 5px 15px;
+  color: var(--black);
+  margin-right: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
+}
+
+.tabsContainer .tab .count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 9px;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--black);
+  pointer-events: none;
+}
+
+.tabsContainer .tab .count.done {
+  background-color: green;
+  color: #fff;
+}
+
+.tabsContainer :hover {
+  opacity: 0.7;
+}
+
 :root {
   --blue: #3498db;
   --yellow: #f1c40f;
   --orange: #f39c12;
   --green: #2ecc71;
   --black: #212121;
+  --grey: #ecf0f1;
 }
 
 html, body {
@@ -11,12 +88,11 @@ html, body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
   color: #fff;
-  background-color: #212121;
-  background: #2980b9;
+  background: #2b5876;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#2c3e50), to(#2980b9));
-  background: linear-gradient(to bottom, #2c3e50, #2980b9);
+  background: -webkit-gradient(linear, right top, left top, from(#4e4376), to(#2b5876)) fixed;
+  background: linear-gradient(to left, #4e4376, #2b5876) fixed;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-repeat: no-repeat;
 }
@@ -25,13 +101,75 @@ html .hidden, body .hidden {
   display: none !important;
 }
 
+html .logo, body .logo {
+  position: fixed;
+  left: 25px;
+  top: 8px;
+  height: 40px;
+  width: 110px;
+  z-index: 1001;
+}
+
+html .logo img, body .logo img {
+  width: 100%;
+}
+
+html h2, body h2 {
+  padding-bottom: 10px;
+  color: var(--yellow);
+  border-bottom: 1px solid white;
+}
+
+html .invert, body .invert {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+html .icon, body .icon {
+  float: right;
+  height: 10px;
+  width: 10px;
+  padding: 0 7px;
+  cursor: pointer;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+}
+
+html .icon img, body .icon img {
+  width: 100%;
+  pointer-events: none;
+}
+
+html .icon:hover, body .icon:hover {
+  opacity: .7;
+}
+
+html .icon.editBtn,
+html .icon.doneBtn,
+html .icon.notDoneBtn, body .icon.editBtn,
+body .icon.doneBtn,
+body .icon.notDoneBtn {
+  height: 14px;
+  width: 14px;
+}
+
+html .icon.shareBtn, body .icon.shareBtn {
+  height: 17px;
+  width: 11px;
+}
+
+html .icon.snoozeBtn, body .icon.snoozeBtn {
+  height: 17px;
+  width: 9px;
+}
+
 html .navbar, body .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -53,11 +191,37 @@ html .navbar a.nav, body .navbar a.nav {
   color: inherit;
   cursor: auto;
   font-size: 15px;
+  margin: 0 50px;
   cursor: pointer;
 }
 
 html .navbar :hover, body .navbar :hover {
   opacity: 0.8;
+}
+
+html .loginContainer, body .loginContainer {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+html button, body button {
+  width: 100px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--blue);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 0;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+html .ql-formats button, body .ql-formats button {
+  margin-top: 0;
 }
 
 html main, body main {
@@ -81,7 +245,6 @@ html main .wrapper h1, body main .wrapper h1 {
 }
 
 html main .wrapper .homeContainer, body main .wrapper .homeContainer {
-  height: 100vh;
   margin-top: 15%;
 }
 
@@ -149,22 +312,10 @@ html main .wrapper .addTaskContainer ::placeholder, body main .wrapper .addTaskC
   color: #ddd;
 }
 
-html main .wrapper .addTaskContainer button, body main .wrapper .addTaskContainer button {
-  width: 100px;
-  font-size: 15px;
-  font-weight: bold;
-  background-color: var(--blue);
-  color: #fff;
-  border-radius: 5px;
-  border: none;
-  padding: 5px 0;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
 html main .wrapper .tasksListContainer, body main .wrapper .tasksListContainer {
   -ms-flex-item-align: start;
       align-self: flex-start;
+  padding-left: 0;
 }
 
 html main .wrapper .tasksListContainer h2, body main .wrapper .tasksListContainer h2 {

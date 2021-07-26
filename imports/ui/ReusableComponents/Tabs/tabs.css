@@ -1,0 +1,52 @@
+.tabsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.tabsContainer .tab {
+  display: inherit;
+  background-color: var(--grey);
+  padding: 5px 10px 5px 15px;
+  color: var(--black);
+  margin-right: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
+}
+
+.tabsContainer .tab .count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 9px;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--black);
+  pointer-events: none;
+}
+
+.tabsContainer .tab .count.done {
+  background-color: green;
+  color: #fff;
+}
+
+.tabsContainer :hover {
+  opacity: 0.7;
+}
+/*# sourceMappingURL=tabs.css.map */

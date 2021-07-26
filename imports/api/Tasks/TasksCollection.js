@@ -1,18 +1,43 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
+import { Random } from 'meteor/random'
  
 export const TasksCollection = new Mongo.Collection('tasks');
 
 const TasksCollectionSchema = new SimpleSchema({
     name: {
         type: String,
-        label: 'Name of the task',
+        label: 'Category',
         optional: true
     },
-    description: {
+    list: {
+        type: Array,
+        label: 'Not done item',
+        optional: true
+    },
+    'list.$': {
+        type: Object,
+        label: 'Not done item info',
+        optional: true
+    },
+    'list.$._id': {
         type: String,
-        label: 'Task Description',
+        label: 'Item ID',
+        autoValue: function() {
+            if (this.operator == '$push')
+            return Random.id()
+        },
+        optional: true
+    },
+    'list.$.name': {
+        type: String,
+        label: 'Name of the item',
+        optional: true
+    },
+    'list.$.description': {
+        type: String,
+        label: 'Name of the item',
         optional: true
     },
     createdAt: {

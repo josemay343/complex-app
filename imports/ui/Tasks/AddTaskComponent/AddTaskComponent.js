@@ -14,6 +14,7 @@ Template.AddTaskComponent.events({
                 description.value = '';
                 toastr.success('Task Added')
             }
+            if (err) toastr.error('Please Try again')
         }) 
     },
     'keyup input':(e, template)=> {
@@ -30,6 +31,7 @@ Template.AddTaskComponent.events({
                     description.value = '';
                     toastr.success('Task Added')
                 }
+                if (err) toastr.error('Please Try again')
             }) 
         }
     }
