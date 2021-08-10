@@ -1,5 +1,8 @@
 import {Template} from 'meteor/templating'
-import "../ReusableComponents/EditButtons.html"
+import "../ReusableComponents/EditButtons/EditButtons.html"
+import "../ReusableComponents/EditButtons/EditButtons"
+import "./NotesEdit.html"
+import "./NotesEdit"
 
 Template.NotesItem.onCreated(function() {
     this.showEditButtons = new ReactiveVar(false)
@@ -8,7 +11,8 @@ Template.NotesItem.onCreated(function() {
 
 Template.NotesItem.helpers({
     showEditButtons:()=>Template.instance().showEditButtons.get(),
-    showPopup:()=>Template.instance().showPopup.get()
+    showPopup:()=>Template.instance().showPopup.get(),
+    buttons:()=> 'notes'
 })
 
 Template.NotesItem.events({
@@ -19,7 +23,6 @@ Template.NotesItem.events({
     'click .deleteBtn':(e, template)=>{
         Meteor.call('deleteNote', template.data._id, 
         (err, res)=>{
-            console.log(err, res)
             if (err) toastr.warning('Please try again')
             if (res) toastr.error('Note Deleted')
         })

@@ -1,6 +1,6 @@
 import {Template} from 'meteor/templating'
-import "../../ReusableComponents/EditButtons.html"
-import '../../ReusableComponents/EditButtons'
+import "../../ReusableComponents/EditButtons/EditButtons.html"
+import '../../ReusableComponents/EditButtons/EditButtons'
 
 Template.TaskItem.onCreated(function() {
     this.showEditBtns = new ReactiveVar()

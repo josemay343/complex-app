@@ -9,7 +9,7 @@ Template.Notes.onCreated(function() {
 })
 
 Template.Notes.onRendered(function() {
-    let textArea = this.find('.textArea')
+   
 /**
  * 
   ___   __ __  ____  _      _     
@@ -20,9 +20,9 @@ Template.Notes.onRendered(function() {
 |     ||     | |  | |     ||     |
  \__,_| \__,_||____||_____||_____|
  */
-
+    let textArea = this.find('.textArea')
     let options = {
-        placeholder: 'Create note',
+        placeholder: 'Type here to create note...',
         theme: 'snow'
     };
     let quill = new Quill(textArea, options);

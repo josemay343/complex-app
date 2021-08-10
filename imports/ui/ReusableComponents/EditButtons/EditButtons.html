@@ -45,5 +45,16 @@
             <img src="/images/icons/times-circle-regular.svg">
           </div>
         {{/if}}
+        {{#if $eq this 'notes'}}
+          <div class="icon deleteBtn invert">
+            <img src="/images/icons/trash-alt-solid.svg">
+          </div>
+          <div class="icon editBtn invert">
+              <img src="/images/icons/edit-solid.svg">
+          </div>
+          <div class="icon shareBtn invert">
+            <img src="/images/icons/share-alt-square-solid.svg">
+          </div>
+        {{/if}}
     </div>
 </template>

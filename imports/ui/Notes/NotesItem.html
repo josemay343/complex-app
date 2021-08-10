@@ -1,12 +1,14 @@
 <template name="NotesItem">
     <div class="noteContainer">
         {{#if showEditButtons}}
-            {{> EditButtons}}
+            {{> EditButtons buttons}}
         {{/if}}
         {{{text}}}
     </div>
     {{#if showPopup}}
-        <div class="overlay"></div>
-        <div class="editNotePopup"></div>
+        <div class="editNotePopup">
+            <div class="overlay"></div>
+            {{> NotesEdit}}
+        </div>
     {{/if}}
 </template>
