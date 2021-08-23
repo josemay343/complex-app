@@ -349,9 +349,14 @@ html main .wrapper .homeContainer .banner, body main .wrapper .homeContainer .ba
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 600px;
-  height: 300px;
+  min-height: 300px;
   position: relative;
+  padding: 30px;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.05);
   -webkit-backdrop-filter: blur(10px);

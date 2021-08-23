@@ -165,9 +165,11 @@ html, body {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    flex-direction: column;
                     width: 600px;
-                    height: 300px;
+                    min-height: 300px;
                     position: relative;
+                    padding: 30px;
                     border-radius: 15px;
                     background-color: rgba(255, 255, 255, 0.05);
                     backdrop-filter: blur(10px);
