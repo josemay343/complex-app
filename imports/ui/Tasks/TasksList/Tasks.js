@@ -9,7 +9,6 @@ import '../TaskItem/TaskItem';
 import '../../ReusableComponents/Tabs/Tabs.html'
 import '../../ReusableComponents/Tabs/Tabs'
 
-
 Template.Tasks.onCreated(function() {
     Meteor.subscribe('tasks')
     this.activeTab = new ReactiveVar('Not-Done')

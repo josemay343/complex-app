@@ -8,8 +8,8 @@ Meteor.methods({
             }
         })
     },
-    'removeTask'(id, collectionType) {
-        return TasksCollection.update({name: collectionType}, {
+    'removeTask'(id, docType) {
+        return TasksCollection.update({name: docType}, {
             $pull: {
                 list:{
                     _id: id
@@ -17,8 +17,8 @@ Meteor.methods({
             }, 
         })
     },
-    'addToDone'(params, collectionType) {
-        TasksCollection.update({name: collectionType}, {
+    'addToDone'(params, docType) {
+        TasksCollection.update({name: docType}, {
             $pull: {
                 list:{_id: params.id}
             }
@@ -30,8 +30,8 @@ Meteor.methods({
             }
         })
     },
-    'addToSnoozed'(params, collectionType) {
-        TasksCollection.update({name: collectionType}, {
+    'addToSnoozed'(params, docType) {
+        TasksCollection.update({name: docType}, {
             $pull: {
                 list: {_id: params.id}
             }
@@ -43,17 +43,17 @@ Meteor.methods({
             }
         })
     },
-    'saveEditTask'(params, collectionType) {
+    'saveEditTask'(params, docType) {
        return TasksCollection.update(
-           {name: collectionType, "list._id": params.id},
+           {name: docType, "list._id": params.id},
            {$set: {
                'list.$.name': params.name,
                'list.$.description': params.description
            }}
         )
     },
-    'unsnoozed'(params, collectionType) {
-        TasksCollection.update({name: collectionType}, {
+    'unsnoozed'(params, docType) {
+        TasksCollection.update({name: docType}, {
             $pull: {
                 list: {_id: params.id}
             }

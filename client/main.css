@@ -13,8 +13,34 @@
   margin-bottom: 20px;
 }
 
-.overlay {
+.editNotePopup {
   position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.editNotePopup .notesEditContainer,
+.editNotePopup .buttonsContainer {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 500px;
+  min-height: 500px;
+  background-color: #fefefe;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.editNotePopup .buttonsContainer {
+  background-color: transparent;
+}
+
+.editNotePopup .overlay {
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
@@ -56,7 +82,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 9px;
+  font-size: .8em;
   width: 18px;
   height: 18px;
   margin-left: 5px;
@@ -74,6 +100,32 @@
   opacity: 0.7;
 }
 
+.reminderItemContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.reminderItemContainer .title.name {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+.reminderItemContainer .title {
+  font-size: 1em;
+  font-weight: 300;
+}
+
 :root {
   --blue: #3498db;
   --yellow: #f1c40f;
@@ -86,6 +138,7 @@
 html, body {
   padding: 0;
   margin: 0;
+  font-size: 14px;
   font-family: 'Rubik', sans-serif;
   color: #fff;
   background: #2b5876;
@@ -190,7 +243,7 @@ html .navbar a.nav, body .navbar a.nav {
   text-decoration: inherit;
   color: inherit;
   cursor: auto;
-  font-size: 15px;
+  font-size: 1.1em;
   margin: 0 50px;
   cursor: pointer;
 }
@@ -209,7 +262,7 @@ html .loginContainer, body .loginContainer {
 
 html button, body button {
   width: 100px;
-  font-size: 15px;
+  font-size: 1em;
   font-weight: bold;
   background-color: var(--blue);
   color: #fff;
@@ -218,6 +271,44 @@ html button, body button {
   padding: 5px 0;
   margin-top: 20px;
   cursor: pointer;
+}
+
+html input, body input {
+  font-size: 1em;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+}
+
+html ::-webkit-input-placeholder, body ::-webkit-input-placeholder {
+  color: #ddd;
+}
+
+html :-ms-input-placeholder, body :-ms-input-placeholder {
+  color: #ddd;
+}
+
+html ::-ms-input-placeholder, body ::-ms-input-placeholder {
+  color: #ddd;
+}
+
+html ::placeholder, body ::placeholder {
+  color: #ddd;
+}
+
+html ::-webkit-calendar-picker-indicator, body ::-webkit-calendar-picker-indicator {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+html label, body label {
+  margin: 10px 0;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--orange);
 }
 
 html .ql-formats button, body .ql-formats button {
@@ -268,7 +359,7 @@ html main .wrapper .homeContainer .banner, body main .wrapper .homeContainer .ba
   z-index: 1;
 }
 
-html main .wrapper .addTaskContainer, body main .wrapper .addTaskContainer {
+html main .wrapper .sectionContainer, body main .wrapper .sectionContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,39 +368,6 @@ html main .wrapper .addTaskContainer, body main .wrapper .addTaskContainer {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 400px;
-}
-
-html main .wrapper .addTaskContainer label, body main .wrapper .addTaskContainer label {
-  margin: 10px 0;
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--orange);
-}
-
-html main .wrapper .addTaskContainer input, body main .wrapper .addTaskContainer input {
-  font-size: 16px;
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  color: #fff;
-  outline: none;
-}
-
-html main .wrapper .addTaskContainer ::-webkit-input-placeholder, body main .wrapper .addTaskContainer ::-webkit-input-placeholder {
-  color: #ddd;
-}
-
-html main .wrapper .addTaskContainer :-ms-input-placeholder, body main .wrapper .addTaskContainer :-ms-input-placeholder {
-  color: #ddd;
-}
-
-html main .wrapper .addTaskContainer ::-ms-input-placeholder, body main .wrapper .addTaskContainer ::-ms-input-placeholder {
-  color: #ddd;
-}
-
-html main .wrapper .addTaskContainer ::placeholder, body main .wrapper .addTaskContainer ::placeholder {
-  color: #ddd;
 }
 
 html main .wrapper .tasksListContainer, body main .wrapper .tasksListContainer {
@@ -333,13 +391,13 @@ html main .wrapper .tasksListContainer li, body main .wrapper .tasksListContaine
 }
 
 html main .wrapper .tasksListContainer li .name, body main .wrapper .tasksListContainer li .name {
-  font-size: 16px;
+  font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 html main .wrapper .tasksListContainer li .description, body main .wrapper .tasksListContainer li .description {
-  font-size: 14px;
+  font-size: 1em;
   font-weight: 300;
 }
 
@@ -355,7 +413,7 @@ html main .wrapper .tasksListContainer li .editBtns, body main .wrapper .tasksLi
 }
 
 html main .wrapper .tasksListContainer li .editBtns .tag, body main .wrapper .tasksListContainer li .editBtns .tag {
-  font-size: 12px;
+  font-size: .9em;
   cursor: pointer;
   margin-bottom: 10px;
 }

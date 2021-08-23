@@ -1,0 +1,26 @@
+.reminderItemContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.reminderItemContainer .title.name {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+.reminderItemContainer .title {
+  font-size: 1em;
+  font-weight: 300;
+}
+/*# sourceMappingURL=ReminderItem.css.map */

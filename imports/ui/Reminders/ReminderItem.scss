@@ -1,0 +1,19 @@
+.reminderItemContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, .2);
+    padding: 10px;
+    border-radius: 10px;
+
+    .title.name {
+        font-size: 1.3em;
+        font-weight: 700;
+        color: var(--yellow)
+    }
+    .title {
+        font-size: 1em;
+        font-weight: 300;
+    }
+}

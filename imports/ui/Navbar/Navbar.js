@@ -7,7 +7,3 @@ Template.Navbar.onCreated(function() {
 Template.Navbar.helpers({
     loggedIn:()=>Template.instance.loggedIn?.get(),
 })
-
-Template.Navbar.events({
-    
-})

@@ -1,5 +1,6 @@
 @import '../imports//ui/Notes/css/notes.scss';
 @import '../imports/ui/ReusableComponents/Tabs/tabs.scss';
+@import '../imports/ui/Reminders/ReminderItem.scss';
 
 :root {
     --blue: #3498db;
@@ -13,6 +14,7 @@
 html, body {
     padding: 0;
     margin: 0;
+    font-size: 14px;
     font-family: 'Rubik', sans-serif;
     color: #fff;
     background: #2b5876;  /* fallback for old browsers */
@@ -89,7 +91,7 @@ html, body {
             text-decoration: inherit;
             color: inherit;
             cursor: auto;
-            font-size: 15px;
+            font-size: 1.1em;
             margin: 0 50px;
             cursor: pointer;
         }:hover {
@@ -107,7 +109,7 @@ html, body {
 
     button {
         width: 100px;
-        font-size: 15px;
+        font-size: 1em;
         font-weight: bold;
         background-color:var(--blue);
         color: #fff;
@@ -116,6 +118,29 @@ html, body {
         padding: 5px 0;
         margin-top: 20px;
         cursor: pointer;
+    }
+
+    input {
+        font-size: 1em;
+        padding: 10px;
+        background-color: transparent;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        color: #fff;
+        outline: none;
+    }::placeholder {
+        color: #ddd;
+    }
+
+    ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+
+    label {
+        margin: 10px 0;
+        font-size: 1.3em;
+        font-weight: bold;
+        color: var(--orange)
     }
 
     .ql-formats {
@@ -150,28 +175,10 @@ html, body {
                 }
             }
 
-            .addTaskContainer {
+            .sectionContainer {
                 display: flex;
                 flex-direction: column;  
                 width: 400px;
-            
-                label {
-                    margin: 10px 0;
-                    font-size: 18px;
-                    font-weight: bold;
-                    color: var(--orange)
-                }
-                input {
-                    font-size: 16px;
-                    padding: 10px;
-                    background-color: transparent;
-                    border: 1px solid #ddd;
-                    border-radius: 10px;
-                    color: #fff;
-                    outline: none;
-                }::placeholder {
-                    color: #ddd;
-                }
             }
             .tasksListContainer {
                 align-self: flex-start;
@@ -188,12 +195,12 @@ html, body {
                     margin-bottom: 20px;
                     border-bottom: 1px solid rgba(255, 255, 255, .15);
                     .name {
-                        font-size: 16px;
+                        font-size: 1.2em;
                         font-weight: 600;
                         margin-bottom: 10px;
                     }
                     .description {
-                        font-size: 14px;
+                        font-size: 1em;
                         font-weight: 300;
                     }
                     button.savebtn {
@@ -206,7 +213,7 @@ html, body {
                         right: 0;
                         
                         .tag {
-                            font-size: 12px;
+                            font-size: .9em;
                             cursor: pointer;
                             margin-bottom: 10px;
                         }

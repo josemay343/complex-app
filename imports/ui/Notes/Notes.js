@@ -1,5 +1,5 @@
 import {Template} from 'meteor/templating';
-import { NotesCollection } from '../../api/notes/NotesCollection';
+import { NotesCollection } from '../../api/Notes/NotesCollection';
 // Imports order are important
 import './NotesItem.html'
 import './NotesItem'
