@@ -1,6 +1,6 @@
-import { Meteor } from 'meteor/meteor';
-import { NotesCollection } from './NotesCollection';
+import {Meteor} from 'meteor/meteor'
+import { NotesCollection } from './NotesCollection'
 
-Meteor.publish('notes', function publishNotes() {
-  return NotesCollection.find({});
-});
+Meteor.publish('notes',function() {
+    return NotesCollection.find({})
+})

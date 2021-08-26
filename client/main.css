@@ -364,6 +364,25 @@ html main .wrapper .homeContainer .banner, body main .wrapper .homeContainer .ba
   z-index: 1;
 }
 
+html main .wrapper .homeContainer .banner .listItem, body main .wrapper .homeContainer .banner .listItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+html main .wrapper .homeContainer .banner .listItem .name, body main .wrapper .homeContainer .banner .listItem .name {
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+html main .wrapper .homeContainer .banner .listItem .count, body main .wrapper .homeContainer .banner .listItem .count {
+  font-weight: 300;
+}
+
 html main .wrapper .sectionContainer, body main .wrapper .sectionContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -421,5 +440,16 @@ html main .wrapper .tasksListContainer li .editBtns .tag, body main .wrapper .ta
   font-size: .9em;
   cursor: pointer;
   margin-bottom: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: .5em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #786fa6;
+  outline: 1px solid transparent;
+  border-radius: 15px;
+  border: none;
 }
 /*# sourceMappingURL=main.css.map */

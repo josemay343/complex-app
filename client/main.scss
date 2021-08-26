@@ -174,6 +174,19 @@ html, body {
                     background-color: rgba(255, 255, 255, 0.05);
                     backdrop-filter: blur(10px);
                     z-index: 1;
+
+                    .listItem {
+                        display: flex;
+                        flex-direction: row;
+
+                        .name {
+                            font-weight: 700;
+                            margin-right: 5px;
+                        }
+                        .count {
+                            font-weight: 300;
+                        }
+                    }
                 }
             }
 
@@ -224,5 +237,16 @@ html, body {
             }
         }
     }
+}
+
+body::-webkit-scrollbar {
+    width: .5em;
+  }
+   
+body::-webkit-scrollbar-thumb {
+    background-color: #786fa6;
+    outline: 1px solid transparent;
+    border-radius: 15px;
+    border: none;
 }
 

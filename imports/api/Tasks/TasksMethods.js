@@ -2,7 +2,7 @@ import { TasksCollection } from "./TasksCollection";
 
 Meteor.methods({
     'addTask'(params) {
-        return TasksCollection.upsert({name: "Not-Done"}, {
+        return TasksCollection.upsert({name: params.activeTab}, {
             $push: {
                 list: params
             }
