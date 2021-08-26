@@ -7,6 +7,9 @@
     import {TasksCollection} from '../../api/Tasks/TasksCollection'
     import Tabs from '../ReusableComponents/Tabs/Tabs.svelte'
     import {activeTab} from '../../api/stores'
+    import {fade} from 'svelte/transition'
+    import {activeApp} from '../../api/stores'
+    activeApp.set('tasks')
     // Active tab set from store
     let active
     activeTab.subscribe(value=>{
@@ -55,7 +58,9 @@
         {#if category.name == active}
             {#if category.list.length}
                 {#each category.list.reverse() as task}
-                    <TaskItem {...task} {active}/>
+                    <div in:fade={{duration: 100}}>
+                        <TaskItem {...task} {active}/>
+                    </div>
                 {/each}
             {:else}
                 <h2>No Tasks Available</h2>

@@ -48,6 +48,10 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.editNotePopup .editTextArea {
+  color: #333;
+}
+
 .tabsContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -381,6 +385,10 @@ html main .wrapper .homeContainer .banner .listItem .name, body main .wrapper .h
 
 html main .wrapper .homeContainer .banner .listItem .count, body main .wrapper .homeContainer .banner .listItem .count {
   font-weight: 300;
+}
+
+html main .wrapper .homeContainer .banner .category, body main .wrapper .homeContainer .banner .category {
+  min-width: 400px;
 }
 
 html main .wrapper .sectionContainer, body main .wrapper .sectionContainer {

@@ -47,4 +47,8 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.editNotePopup .editTextArea {
+  color: #333;
+}
 /*# sourceMappingURL=notes.css.map */

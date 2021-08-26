@@ -5,6 +5,8 @@
     import { path, query, fragment, pattern } from 'svelte-pathfinder';
     import {fade} from 'svelte/transition';
     import Navbar from '../imports/ui/Navbar/Navbar.svelte'
+    import Notes from './ui/Notes/Notes.svelte';
+    import {activeApp} from '../imports/api/stores'
 </script>
 <main>
     <Navbar />
@@ -17,6 +19,11 @@
         {#if $pattern('/tasks')}
             <div in:fade="{{ duration: 700}}">
                 <Tasks />
+            </div>
+        {/if}
+        {#if $pattern('/notes')}
+            <div in:fade="{{ duration: 700}}">
+                <Notes />
             </div>
         {/if}
     </div>

@@ -19,7 +19,7 @@
 <div class="homeContainer">
     <div class="banner">
         <h1>Recent:</h1>
-        <div class="tasks">
+        <div class="category">
             <h2>Tasks</h2>
             {#each $tasks as task}
                 <div class="listItem">
@@ -28,14 +28,14 @@
                 </div>
             {/each}    
         </div>
-        <div class="notes">
+        <div class="category">
             <h2>Notes</h2>
             <div class="listItem">
                 <div class="name">Total: </div>
                 <div class="count">{$notes.length}</div>
             </div>
         </div>
-        <div class="notes">
+        <div class="category">
             <h2>Reminders</h2>
             {#each $reminders as reminder}
                 <div class="listItem">

@@ -4,7 +4,7 @@
     import 'tippy.js/animations/scale-subtle.css';
     import {afterUpdate} from 'svelte';
     import { createEventDispatcher } from 'svelte';
-    export let activeTab
+    export let app
     let deleteBtn, 
         editBtn,
         shareBtn,
@@ -67,24 +67,26 @@
 >
     <img src="/images/icons/share-alt-square-solid.svg" alt="">
 </div>
-<div 
-    bind:this={snoozebtn} 
-    class="icon snoozeBtn invert"
-    on:click={()=> createRequest('snooze')}
->
-    <img src="/images/icons/hourglass-start-solid.svg" alt="">
-</div>
-<div 
-    bind:this={doneBtn} 
-    class="icon doneBtn invert"
-    on:click={()=> createRequest('done')}
->
-    <img src="/images/icons/check-circle-regular.svg" alt="">
-</div>
-<div
-    bind:this={notDoneBtn}
-    class="icon notDoneBtn invert"
-    on:click={()=> createRequest('undone')}
->
-    <img src="/images/icons/times-circle-regular.svg" alt="">
-  </div>
+{#if app === 'tasks'}
+    <div 
+        bind:this={snoozebtn} 
+        class="icon snoozeBtn invert"
+        on:click={()=> createRequest('snooze')}
+    >
+        <img src="/images/icons/hourglass-start-solid.svg" alt="">
+    </div>
+    <div 
+        bind:this={doneBtn} 
+        class="icon doneBtn invert"
+        on:click={()=> createRequest('done')}
+    >
+        <img src="/images/icons/check-circle-regular.svg" alt="">
+    </div>
+    <div
+        bind:this={notDoneBtn}
+        class="icon notDoneBtn invert"
+        on:click={()=> createRequest('undone')}
+    >
+        <img src="/images/icons/times-circle-regular.svg" alt="">
+    </div>
+{/if}

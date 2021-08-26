@@ -1,5 +1,12 @@
 <script>
     import EditButtons from '../ReusableComponents/EditButtons/EditButtons.svelte'
+    import {activeApp} from '../../api/stores'
+    let app
+    activeApp.subscribe(value=> {
+        app = value
+    })
+
+    console.log(app)
     export let name, description, active, _id
     // Reactive Variables
     $: showEditButton = false
@@ -58,7 +65,7 @@
     on:mouseleave={handleMouseleave}
 >
     {#if showEditButton}
-        <EditButtons on:request={handleRequest} {active}/>
+        <EditButtons on:request={handleRequest} {app}/>
     {/if}
     {#if !editing}
         <div 
