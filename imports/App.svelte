@@ -6,7 +6,7 @@
     import {fade} from 'svelte/transition';
     import Navbar from '../imports/ui/Navbar/Navbar.svelte'
     import Notes from './ui/Notes/Notes.svelte';
-    import {activeApp} from '../imports/api/stores'
+    import Reminders from '../imports/ui/Reminders/Reminders.svelte'
 </script>
 <main>
     <Navbar />
@@ -25,6 +25,9 @@
             <div in:fade="{{ duration: 700}}">
                 <Notes />
             </div>
+        {/if}
+        {#if $pattern('/reminders')}
+            <Reminders />
         {/if}
     </div>
 </main>
