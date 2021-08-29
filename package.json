@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
+    "chai": "^4.3.4",
     "svelte-pathfinder": "^3.2.3",
     "tinro": "^0.6.6"
   }

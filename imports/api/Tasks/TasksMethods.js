@@ -1,8 +1,14 @@
 import { TasksCollection } from "./TasksCollection";
+import { Meteor } from 'meteor/meteor';
 
 Meteor.methods({
-    'addTask'(params) {
-        return TasksCollection.upsert({name: params.activeTab}, {
+    'addTask'(owner, params) {
+        return TasksCollection.upsert(
+            {
+                category: owner.category,
+                owner: owner.owner,
+                username: owner.username
+            }, {
             $push: {
                 list: params
             }

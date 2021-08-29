@@ -1,15 +1,24 @@
 <script>
+    import { Meteor } from 'meteor/meteor';
+    // Private variables
     let name;
     let description;
-    export let active;
+    // Props
+    export let category;
     function addTask() {
         if (!name || !description) return toastr.error('fields Cannot be empty')
+        let owner = {
+            category,
+            owner: Meteor.userId(),
+            username: Meteor.user().username
+        }
         let params = {
             name,
             description,
-            active
+            
         }
-        Meteor.call('addTask', params, (err, res)=> {
+        console.log(owner,params)
+        Meteor.call('addTask', owner, params, (err, res)=> {
             if (res) {
                 name = '';
                 description = '';

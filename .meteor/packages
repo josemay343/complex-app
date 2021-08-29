@@ -25,8 +25,8 @@ aldeed:template-extension
 #=======
 
 ostrio:flow-router-extra
-accounts-password@2.0.0
-accounts-ui@1.4.0
+accounts-password
+accounts-ui
 accounts-google@1.4.0
 accounts-facebook@1.3.3
 dev-error-overlay@0.1.1
@@ -39,3 +39,5 @@ raix:handlebar-helpers
 svelte:compiler
 rdb:svelte-meteor-data
 static-html
+meteortesting:mocha
+svelte:blaze-integration

@@ -5,9 +5,8 @@
     activeApp.subscribe(value=> {
         app = value
     })
-
-    console.log(app)
-    export let name, description, active, _id
+    //Props
+    export let name, description, category, _id
     // Reactive Variables
     $: showEditButton = false
     $: editing = false

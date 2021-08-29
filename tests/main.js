@@ -1,4 +1,5 @@
 import assert from "assert";
+import '../imports/api/Tasks/tasks.test.js'
 
 describe("complex-app", function () {
   it("package.json has correct name", async function () {

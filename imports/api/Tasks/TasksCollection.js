@@ -5,7 +5,17 @@ import { Random } from 'meteor/random'
 export const TasksCollection = new Mongo.Collection('tasks');
 
 const TasksCollectionSchema = new SimpleSchema({
-    name: {
+    owner: {
+        type: String,
+        label: 'User Id',
+        optional: true
+    },
+    username: {
+        type: String,
+        label: 'Username',
+        optional: true
+    }, 
+    category: {
         type: String,
         label: 'Category',
         optional: true
@@ -50,33 +60,19 @@ const TasksCollectionSchema = new SimpleSchema({
 
 TasksCollection.attachSchema(TasksCollectionSchema);
 
-// if (Meteor.isServer) {
-//     TasksCollection.allow({
-//         insert: function() {
-//             if (Meteor.userId) return true
-//             return false
-//         },
-//         update: function() {
-//             if (Meteor.userId) return true
-//             return false
-//         },
-//         remove: function() {
-//             if (Meteor.isServer) return true
-//             return false
-//         }
-//     });
-//     TasksCollection.deny({
-//         insert: function() {
-//             if (Meteor.userId) return false
-//             return true
-//         },
-//         update: function() {
-//             if (Meteor.userId) return false
-//             return true
-//         },
-//         remove: function() {
-//             if (Meteor.isServer) return false
-//             return true
-//         }
-//     })
-// }
+if (Meteor.isServer) {
+    TasksCollection.deny({
+        insert: function() {
+            if (Meteor.userId) return false
+            return true
+        },
+        update: function() {
+            if (Meteor.userId) return false
+            return true
+        },
+        remove: function() {
+            if (Meteor.isServer) return false
+            return true
+        }
+    })
+}
