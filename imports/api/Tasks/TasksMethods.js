@@ -14,8 +14,8 @@ Meteor.methods({
             }
         })
     },
-    'removeTask'(id, docType) {
-        return TasksCollection.update({name: docType}, {
+    'removeTask'(id, owner) {
+        return TasksCollection.update({category: owner.category}, {
             $pull: {
                 list:{
                     _id: id
@@ -23,49 +23,62 @@ Meteor.methods({
             }, 
         })
     },
-    'addToDone'(params, docType) {
-        TasksCollection.update({name: docType}, {
-            $pull: {
-                list:{_id: params.id}
+    'addToDone'(params, owner) {
+        TasksCollection.update({category: owner.category, "list._id": params.id}, 
+            {
+                $pull: {
+                    list:{_id: params.id}
             }
         })
-
-        return TasksCollection.upsert({name: 'Done'}, {
+        return TasksCollection.upsert(
+            {
+                category: 'Done',
+                owner: owner.owner,
+                username: owner.username
+            }, {
             $push: {
                 list: params
             }
         })
     },
-    'addToSnoozed'(params, docType) {
-        TasksCollection.update({name: docType}, {
-            $pull: {
-                list: {_id: params.id}
+    'addToSnoozed'(params, owner) {
+        TasksCollection.update({category: owner.category, "list._id": params.id}, 
+            {
+                $pull: {
+                    list: {_id: params.id}
             }
         })
-
-        return TasksCollection.upsert({name: 'Snoozed'}, {
+        return TasksCollection.upsert(
+            {
+                category: 'Snoozed',
+                owner: owner.owner,
+                username: owner.username
+            }, {
             $push: {
                 list: params
             }
         })
     },
-    'saveEditTask'(params, docType) {
-       return TasksCollection.update(
-           {name: docType, "list._id": params.id},
-           {$set: {
+    'saveEditTask'(params, owner) {
+       return TasksCollection.update({category: owner.category, "list._id": params.id}, 
+            {
+                $set: {
                'list.$.name': params.name,
                'list.$.description': params.description
-           }}
-        )
+           }
+        })
     },
-    'unsnoozed'(params, docType) {
-        TasksCollection.update({name: docType}, {
+    'unsnoozed'(params, owner) {
+        TasksCollection.update({category: owner.category, "list._id": params.id}, 
+        {
             $pull: {
                 list: {_id: params.id}
             }
         })
-
-        return TasksCollection.upsert({name: 'Not-Done'}, {
+        return TasksCollection.upsert(
+            {
+                category: 'Not-Done',
+            }, {
             $push: {
                 list: params
             }

@@ -1,6 +1,8 @@
 <script>
     import EditButtons from '../ReusableComponents/EditButtons/EditButtons.svelte'
     import {activeApp} from '../../api/stores'
+    import { Meteor } from 'meteor/meteor';
+
     let app
     activeApp.subscribe(value=> {
         app = value
@@ -20,13 +22,17 @@
         showEditButton = false
     }
     function methodCall(method) {
+        let owner = {
+            category,
+            owner: Meteor.userId(),
+            username: Meteor.user().username
+        }
         let params = {
             name: nameEdit?.innerText,
             description: descriptionEdit?.innerText,
             id: _id
         }
-
-        Meteor.call(method, params, active, (err, res)=> {
+        Meteor.call(method, params, owner, (err, res)=> {
             if (res) toastr.success('Saved')
             if (err) toastr.error('Please try again')
         })
@@ -35,7 +41,7 @@
         let request = event.detail.request
         switch(request) {
             case 'delete': 
-                Meteor.call('removeTask', _id, active, (err, res)=> {
+                Meteor.call('removeTask', _id, category, (err, res)=> {
                     if (res) toastr.error('Task Deleted')
                     if (err) toastr.warning('Please try again')
                 })
