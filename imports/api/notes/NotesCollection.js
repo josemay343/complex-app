@@ -4,9 +4,24 @@ import SimpleSchema from 'simpl-schema';
 export const NotesCollection = new Mongo.Collection('notes');
 
 const NotesCollectionSchema = new SimpleSchema({
-    text: {
+    name: {
         type: String,
-        label: 'HTML string',
+        label: 'note object',
+        optional: true
+    },
+    note: {
+        type: String,
+        label: 'Note html string',
+        optional: true
+    },
+    owner: {
+        type: String,
+        label: "Owner ID",
+        optional: true
+    },
+    username: {
+        type: String,
+        label: "Owner username",
         optional: true
     },
     linkTo: {

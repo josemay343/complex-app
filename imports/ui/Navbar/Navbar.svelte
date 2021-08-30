@@ -12,10 +12,3 @@
     <a href="/notes" class="nav">Notes</a>
     <a href="reminders" class="nav">Reminders</a>
 </div>
-<div class="loginContainer">
-    {#if loggedIn}
-        <div class="title">Login</div>
-        {:else}
-        <div class="title">Logout</div>
-    {/if}
-</div>

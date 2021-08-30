@@ -14,8 +14,8 @@ Meteor.methods({
             }
         })
     },
-    'removeTask'(id, owner) {
-        return TasksCollection.update({category: owner.category}, {
+    'removeTask'(id, category) {
+        return TasksCollection.update({category: category, "list._id": id}, {
             $pull: {
                 list:{
                     _id: id

@@ -9,14 +9,18 @@
     import Reminders from '../imports/ui/Reminders/Reminders.svelte'
     import { BlazeTemplate } from 'meteor/svelte:blaze-integration';
     import {useTracker} from 'meteor/rdb:svelte-meteor-data'
-    let currentUser;
-
+    // let currentUser;
     $: currentUser = useTracker(() => Meteor.user());
 </script>
 <main>
+    {#if !$currentUser}
+    <div class="loginContainer">
+        <BlazeTemplate template="loginButtons" data={{align: 'right'}}/>
+    </div> 
+    {/if}
     {#if $currentUser}
         <div class="loginContainer">
-            <BlazeTemplate template="loginButtons" />
+            <BlazeTemplate template="loginButtons" data={{align: 'right'}}/>
         </div>
         <Navbar />
         <div class="wrapper">

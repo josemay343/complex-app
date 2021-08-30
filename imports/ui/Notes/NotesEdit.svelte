@@ -1,6 +1,6 @@
 <script>
     import {onMount} from 'svelte'
-    export let text, _id
+    export let note, _id
     import { createEventDispatcher } from 'svelte';
 
     const dispatch = createEventDispatcher();
@@ -22,12 +22,11 @@
 	}
 
     function update() {
-        let text = document.querySelector('#editTextArea > .ql-editor').innerHTML
+        let note = document.querySelector('#editTextArea > .ql-editor').innerHTML
         let params = {
             id: _id, 
-            text
+            note
         }
-        console.log(params)
         Meteor.call('saveEditNote', params, (err, res)=> {
             if (res) {
 
@@ -45,7 +44,7 @@
             id="editTextArea"
             name="textArea" 
             class="editTextArea">
-            {@html text}
+            {@html note}
         </div>
     </div>
 </div>

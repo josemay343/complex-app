@@ -1,11 +1,17 @@
 import { NotesCollection } from "./NotesCollection";
 
 Meteor.methods({
-    'addNote':(text)=> NotesCollection.insert({text: text}),
+    'addNote':(params)=> NotesCollection.insert(
+            {
+                name: 'Note',
+                owner: params.owner,
+                username: params.username,
+                note: params.note
+            }),
     'deleteNote':(id)=>NotesCollection.remove({_id: id}),
     'saveEditNote'(params) {
         return NotesCollection.update({_id: params.id}, {$set: {
-            text: params.text
+            note: params.note
         }})
     }
 })

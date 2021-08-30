@@ -40,7 +40,7 @@
     function handleRequest(event) {
         let request = event.detail.request
         switch(request) {
-            case 'delete': 
+            case 'delete':
                 Meteor.call('removeTask', _id, category, (err, res)=> {
                     if (res) toastr.error('Task Deleted')
                     if (err) toastr.warning('Please try again')

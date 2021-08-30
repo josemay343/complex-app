@@ -1,13 +1,15 @@
 <script>
     import {NotesCollection} from '../../api/Notes/NotesCollection'
-    import NotesItem from './NotesItem.svelte';
     import { onMount } from 'svelte'
     import {useTracker} from 'meteor/rdb:svelte-meteor-data'
     import {activeApp} from '../../api/stores'
+    import {Meteor} from 'meteor/meteor';
+    import NotesItem from './NotesItem.svelte';
+    // Store set
     activeApp.set('notes')
-    onMount(()=> Meteor.subscribe('notes'))
     // Reactive Variables
     $: notes = useTracker(()=> NotesCollection.find({}).fetch()) 
+    $: currentUser = useTracker(()=> Meteor.user())
 
     /**
      * 
@@ -20,7 +22,9 @@
  \__,_| \__,_||____||_____||_____|
      */
     let textArea, options
+    //LIfe cycle
     onMount(()=> {
+        Meteor.subscribe('notes')
         textArea = document.querySelector('.textArea')
         options = {
             placeholder: 'Type here to create note...',
@@ -29,9 +33,18 @@
         new Quill(textArea, options);
     })
 
+    // Functions
     function createNote() {
-        let text = document.querySelector('.ql-editor').innerHTML
-        Meteor.call('addNote', text)
+        let note = document.querySelector('.ql-editor').innerHTML
+        let params = {
+            owner: Meteor.userId(),
+            username: Meteor.user().username,
+            note
+        }
+        Meteor.call('addNote', params, (err, res)=> {
+            if (res) toastr.success('Note Added')
+            if (err) toastr.error('Please try again' + err)
+        })
         document.querySelector('.ql-editor').innerText = ''
     }
     
@@ -48,5 +61,7 @@
 <button class="createBtn" on:click={createNote}>Create</button>
 <h2>Notes</h2>
 {#each $notes.reverse() as note}
-    <NotesItem {...note}/>
+    {#if note.owner === $currentUser._id}
+        <NotesItem {...note}/>
+    {/if}
 {/each}

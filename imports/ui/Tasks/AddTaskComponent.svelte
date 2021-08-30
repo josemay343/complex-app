@@ -17,7 +17,6 @@
             description,
             
         }
-        console.log(owner,params)
         Meteor.call('addTask', owner, params, (err, res)=> {
             if (res) {
                 name = '';

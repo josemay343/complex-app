@@ -6,7 +6,8 @@
     activeApp.subscribe(value=>{
         app = value
     })
-    export let text, _id
+    //Props
+    export let note, _id
     $: showEditButtons = false;
     $: showPopup = false
 
@@ -40,12 +41,12 @@
     {#if showEditButtons}
         <EditButtons on:request={handleRequest} {app}/>
     {/if}
-    {@html text}
+    {@html note}
 </div>
 
 {#if showPopup}
     <div class="editNotePopup">
         <div class="overlay"></div>
-        <NotesEdit {text} {_id} on:cancel={hidePopup}/>
+        <NotesEdit {note} {_id} on:cancel={hidePopup}/>
     </div>
 {/if}

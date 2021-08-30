@@ -100,11 +100,11 @@ html, body {
     }
 
     .loginContainer {
-        position: fixed;
+        position: absolute;
         top: 15px;
         right: 15px;
         cursor: pointer;
-        z-index: 1000;
+        z-index: 1001;
     }
 
     button {

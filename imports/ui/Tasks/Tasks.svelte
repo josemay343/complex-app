@@ -1,4 +1,5 @@
 <script>
+    //IMport statements
     import {Meteor} from 'meteor/meteor'
     import { afterUpdate, onMount } from 'svelte';
     import {useTracker} from 'meteor/rdb:svelte-meteor-data'
@@ -23,6 +24,7 @@
     onMount(()=>Meteor.subscribe('tasks'))
     // reactive Variables
     $: tasks = useTracker(()=> TasksCollection.find({}).fetch())
+    $: currentUser = useTracker(()=> Meteor.user());
 
     let tabsArray = [
         {
@@ -41,9 +43,9 @@
     ]
     // ...the DOM is now in sync with the data
     afterUpdate(()=> {
-        tabsArray[0].count = TasksCollection.findOne({category: 'Not-Done'})?.list.length
-        tabsArray[1].count = TasksCollection.findOne({category: 'Done'})?.list.length
-        tabsArray[2].count = TasksCollection.findOne({category: 'Snoozed'})?.list.length
+        tabsArray[0].count = TasksCollection.findOne({owner: $currentUser._id, category: 'Not-Done'})?.list.length
+        tabsArray[1].count = TasksCollection.findOne({owner: $currentUser._id, category: 'Done'})?.list.length
+        tabsArray[2].count = TasksCollection.findOne({owner: $currentUser._id, category: 'Snoozed'})?.list.length
     })
 </script>
 
@@ -58,15 +60,17 @@
 <Tabs {tabsArray}/>
 <ul class="tasksListContainer">
     {#each $tasks as task}
-        {#if task.category == category}
-            {#if task.list.length}
-                {#each task.list.reverse() as task}
-                    <div in:fade={{duration: 100}}>
-                        <TaskItem {...task} {category}/>
-                    </div>
-                {/each}
-            {:else}
-                <h2>No Tasks Available</h2>
+        {#if task.owner === $currentUser._id}
+            {#if task.category == category}
+                {#if task.list.length}
+                    {#each task.list.reverse() as task}
+                        <div in:fade={{duration: 100}}>
+                            <TaskItem {...task} {category}/>
+                        </div>
+                    {/each}
+                {:else}
+                    <h2>No Tasks Available</h2>
+                {/if}
             {/if}
         {/if}
     {/each}
