@@ -5,6 +5,7 @@
     import {activeApp} from '../../api/stores'
     import {Meteor} from 'meteor/meteor';
     import NotesItem from './NotesItem.svelte';
+    let title = 'Hagana - Secure Notes'
     // Store set
     activeApp.set('notes')
     // Reactive Variables
@@ -49,6 +50,12 @@
     }
     
 </script>
+
+<svelte:head>
+    // SEO head
+    <title>{title}</title>
+    <meta name="description" content="The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps.">
+</svelte:head>
 
 <h1>Secure Notes Creator</h1>
 <div class="noteCreator">

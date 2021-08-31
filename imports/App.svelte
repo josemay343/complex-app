@@ -1,15 +1,16 @@
 <script>
-    import HomeLayout from '../imports/ui/Home/HomeLayout.svelte'
-    import Tasks from '../imports/ui/Tasks/Tasks.svelte'
-    // import {Route, router} from 'tinro'; 
+    // IMport statements
     import { path, query, fragment, pattern } from 'svelte-pathfinder';
     import {fade} from 'svelte/transition';
-    import Navbar from '../imports/ui/Navbar/Navbar.svelte'
-    import Notes from './ui/Notes/Notes.svelte';
-    import Reminders from '../imports/ui/Reminders/Reminders.svelte'
     import { BlazeTemplate } from 'meteor/svelte:blaze-integration';
     import {useTracker} from 'meteor/rdb:svelte-meteor-data'
-    // let currentUser;
+    // import componets
+    import Tasks from '../imports/ui/Tasks/Tasks.svelte'
+    import HomeLayout from '../imports/ui/Home/HomeLayout.svelte'
+    import Notes from './ui/Notes/Notes.svelte';
+    import Reminders from '../imports/ui/Reminders/Reminders.svelte'
+    import Navbar from '../imports/ui/Navbar/Navbar.svelte'
+    // Reactive variables;
     $: currentUser = useTracker(() => Meteor.user());
 </script>
 <main>

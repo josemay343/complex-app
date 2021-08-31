@@ -1,19 +1,40 @@
 <script>
-import { dateToDateString } from 'simpl-schema/dist/utility';
-
+    import { afterUpdate, onMount } from 'svelte';
+    import {useTracker} from 'meteor/rdb:svelte-meteor-data'
+    import {activeApp} from '../../api/stores'
     import RemindersList from './RemindersList.svelte'
+    // Sets active app
+    activeApp.set('reminders')
+    // Local variables
     let name, date, time
-
+    // Disables dates before current day
+    afterUpdate(()=> {
+        let today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("somedate")[0].setAttribute('min', today);
+    })
+    // Reactive variables
+    $: currentUser = useTracker(()=> Meteor.user())
+    // functions
     function processSubmit() {
         let params ={
-            name,
-            date,
-            time
+            owner: $currentUser._id,
+            username: $currentUser.username,
+            reminder: {
+                name,
+                date,
+                time,
+            }
         }
         Meteor.call('addReminder', params, (err, res)=> {
             if (res) toastr.success('Reminder added')
-            if (err) toastr.err('Please try again')
+            if (err) toastr.error('Please try again' + err)
         })
+        resetForm()
+    }
+    function resetForm() {
+        name = ''
+        date = ''
+        time = ''
     }
 </script>
 <h1>Reminders</h1>
@@ -28,6 +49,7 @@ import { dateToDateString } from 'simpl-schema/dist/utility';
     >
     <label for="datePicker">Select Date</label>
     <input 
+        name="somedate"
         type="date" 
         class="dateInput"
         bind:value={date}

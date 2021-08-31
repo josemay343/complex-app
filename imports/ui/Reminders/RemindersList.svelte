@@ -3,15 +3,15 @@
     import RemindersItem from './RemindersItem.svelte'
     import {useTracker} from 'meteor/rdb:svelte-meteor-data'
     Meteor.subscribe('reminders')
-
+    // Reactive variables
+    $: currentUser = useTracker(()=> Meteor.user())
     $: reminders = useTracker(()=> RemindersCollection.find({}).fetch())
-    let activetab = 'Not-Done'
 </script>
 
-{#each $reminders as reminder}
-    {#if activetab === 'Not-Done'}
-        {#each reminder.list.reverse() as item}
-            <RemindersItem {...item}/>
+{#each $reminders as item}
+    {#if $currentUser._id === item.owner}
+        {#each item.reminder.reverse() as reminder}
+            <RemindersItem {...reminder}/>
         {/each}
     {/if}
 {/each}

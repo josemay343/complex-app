@@ -8,6 +8,7 @@
     })
     //Props
     export let note, _id
+    // Reactive variables
     $: showEditButtons = false;
     $: showPopup = false
 

@@ -10,17 +10,27 @@ const RemindersCollectionSchema = new SimpleSchema({
         label: 'Category',
         optional: true
     },
-    list: {
-        type: Array,
+    reminder: {
+        type: String,
         label: 'Not done item',
         optional: true
     },
-    'list.$': {
+    owner: {
+        type: String,
+        label: "Owner ID",
+        optional: true
+    },
+    username: {
+        type: String,
+        label: "Owner username",
+        optional: true
+    },
+    'reminder.$': {
         type: Object,
         label: 'Not done item info',
         optional: true
     },
-    'list.$._id': {
+    'reminder.$._id': {
         type: String,
         label: 'Item ID',
         autoValue: function() {
@@ -29,17 +39,17 @@ const RemindersCollectionSchema = new SimpleSchema({
         },
         optional: true
     },
-    'list.$.name': {
+    'reminder.$.name': {
         type: String,
         label: 'Name of the item',
         optional: true
     },
-    'list.$.date': {
+    'reminder.$.date': {
         type: String,
         label: 'Date of the item',
         optional: true
     },
-    'list.$.time': {
+    'reminder.$.time': {
         type: String,
         label: 'Time of the item',
         optional: true
